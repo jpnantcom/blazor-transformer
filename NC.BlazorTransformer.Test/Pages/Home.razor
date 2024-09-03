@@ -1,0 +1,50 @@
+﻿@page "/"
+@using Newtonsoft.Json
+
+<PageTitle>NantCom</PageTitle>
+
+<h1>NantCom : Nomic Embedding on Edge</h1>
+
+<button @onclick="Test">Run Embedding</button>
+
+<pre>
+    @Progress
+</pre>
+
+@code {
+
+    [Inject]
+    public IJSRuntime JS { get; set; }
+
+    public string Progress { get; set; } = "Ready";
+
+    private NomicEmbed _nomic;
+    private FileDownloader _downloader;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _nomic = new NomicEmbed(JS);
+    }
+
+    private async void Test()
+    {
+        await _nomic.LoadResources("https://huggingface.co/", (status) =>
+        {
+            this.Progress += $"\n{status.FileName} {status.ProgressFraction}";
+            this.StateHasChanged();
+        });
+
+        var result = await _nomic.Embed(@"search_document: รายการปรับปรุงต้นทุนขาย-สินค้าสำเร็จรูปเพื่อแสดงเป็นสินค้าระหว่างทาง ณ วันสิ้นงวด  ในกรณีที่บริษัทได้ออกใบแจ้งหนี้และบันทึกตัดปริมาณสินค้าคงเหลือแล้ว  แต่ยังส่งสินค้าไม่ถึงจุดส่งมอบตามเงื่อนไขการขาย (incoterms) ณ วันสิ้นงวด
+การบันทึกรายการปรับปรุงสินค้าสำเร็จรูประหว่างทาง (Finished Goods in-transit) สรุปได้ดังนี้
+เดบิต บัญชีสินค้าระหว่างทาง
+         เครดิต ต้นทุนขาย-สินค้าสำเร็จรูป(ปรับปรุงสินค้าระหว่างทาง)
+         เครดิต ต้นทุนขาย-ผลต่างราคาต้นทุนผลิตสำหรับสินค้าสำเร็จรูป(ปรับปรุงสินค้าระหว่างทาง)
+และบันทึกกลับรายการ ณ วันที่ต้นงวดในเดือนถัดไป ดังนี้
+เดบิต ต้นทุนขาย-สินค้าสำเร็จรูป(ปรับปรุงสินค้าระหว่างทาง)
+เดบิต ต้นทุนขาย-ผลต่างราคาต้นทุนผลิตสำหรับสินค้าสำเร็จรูป(ปรับปรุงสินค้าระหว่างทาง)
+         เครดิต บัญชีสินค้าระหว่างทาง ");
+    
+        // serialize result to json
+        var json = JsonConvert.SerializeObject(result);
+    }
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NC.BlazorTransformer.Test", "NC.BlazorTransformer.Test\NC.BlazorTransformer.Test.csproj", "{DB35D1B5-E558-4AD1-AFA1-56B814371EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NC.BlazorTransformer", "NC.BlazorTransformer\NC.BlazorTransformer.csproj", "{2E59A831-4FF4-4FEA-B9F8-1C5CD696DED9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB35D1B5-E558-4AD1-AFA1-56B814371EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB35D1B5-E558-4AD1-AFA1-56B814371EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB35D1B5-E558-4AD1-AFA1-56B814371EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB35D1B5-E558-4AD1-AFA1-56B814371EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E59A831-4FF4-4FEA-B9F8-1C5CD696DED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E59A831-4FF4-4FEA-B9F8-1C5CD696DED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E59A831-4FF4-4FEA-B9F8-1C5CD696DED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E59A831-4FF4-4FEA-B9F8-1C5CD696DED9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D58F995-7609-4501-A662-BFFA85D73198}
+	EndGlobalSection
+EndGlobal
