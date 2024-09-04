@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\phi3\llm.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\phi3\phi3-submitprompt.js" />
+    <None Include="wwwroot\phi3\llm.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 

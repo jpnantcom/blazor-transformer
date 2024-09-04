@@ -72,9 +72,13 @@ public class FileDownloader : BaseWorkerInterop, IWorkerProgressReceiver
             _me = DotNetObjectReference.Create(this);
         }
 
-        this.FileName = Path.GetFileName(url);
+        this.FileName = url;
 
         return this.InvokeModule("download", url, cacheKey, _me);
     }
 
+    protected override void OnDisposing()
+    {
+        _me?.Dispose();
+    }
 }
